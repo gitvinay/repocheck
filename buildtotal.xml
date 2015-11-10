@@ -1,0 +1,39 @@
+<project name="build" default="dist">
+
+<target name="clean">
+<delete dir="build/classes"/>
+<delete dir="build/jar"/>
+<delete dir="build/web"/>
+</target>
+
+<target name="init" depends="clean">
+<mkdir dir="build/classes"/>
+<mkdir dir="build/jar"/>
+<mkdir dir="build/web"/>
+<mkdir dir="dist"/>
+</target>
+
+<target name="compile"  depends="init">
+<javac srcdir="src" destdir="build/classes"/>
+</target>					
+
+<target name="jar" depends="compile">
+<jar destfile="build/jar/app1.0.jar" basedir="build/classes"/>
+</target>
+
+<target name="copyweb">
+<copy todir="build/web">
+	<fileset dir="web">
+	</fileset>
+	</copy>
+	</target>
+
+<target name="dist" depends="jar,copyweb">	
+<zip destfile="dist/app1.zip">
+	<fileset dir="build/web"/>
+	<fileset dir="build/jar"/>
+	
+	</zip>
+	</target>
+</project>	
+
