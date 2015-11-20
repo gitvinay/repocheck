@@ -32,7 +32,6 @@
 <war destfile="dist/app1.war">
 	<fileset dir="build/web"/>
 	<fileset dir="build/jar"/>
-	
 	</war>
 	</target>
 </project>	
