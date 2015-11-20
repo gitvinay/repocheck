@@ -29,7 +29,7 @@
 	</target>
 
 <target name="dist" depends="jar,copyweb">	
-<war destfile="dist/app1.war">
+<war destfile="dist/app1.war" needxmlfile="false">
 	<fileset dir="build/web"/>
 	<fileset dir="build/jar"/>
 	</war>
